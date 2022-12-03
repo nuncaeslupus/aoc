@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Optional
 import textwrap
 
-days = 4
+days = 25
 base_example_file = "example"
 base_data_file = "data.txt"
 lang_ext = {"python": "py"}
@@ -25,7 +25,6 @@ lang_ext = {"python": "py"}
 def main(year: str, language: str, base_path: str) -> None:
     ext = lang_ext[language]
     example_file = f"{base_example_file}.{ext}"
-    print(example_file)
 
     for day in range(days):
         new_path = os.path.join(base_path, str(year), str(day + 1).zfill(2))
