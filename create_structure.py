@@ -37,8 +37,8 @@ def main(year: str, language: str, base_path: str) -> None:
 
         # Make both data files
         data_files = [base_sample_file, base_data_file]
-        for data_file in data_files:
-            data_file = os.path.join(new_path, base_data_file)
+        for file in data_files:
+            data_file = os.path.join(new_path, file)
             if not os.path.exists(data_file):
                 try:
                     open(data_file, "w").close()
