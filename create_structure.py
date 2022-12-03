@@ -120,6 +120,7 @@ if __name__ == "__main__":
         while True:
             if answer.lower() in ["y", "yes"]:
                 main(args.year, args.language, args.path)
+                print("Finished creating structure. Happy coding!")
                 break
             elif answer.lower() in ["n", "no"]:
                 break
