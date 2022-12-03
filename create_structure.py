@@ -13,11 +13,11 @@ import argparse
 from argparse_range import range_action
 import os
 from pathlib import Path
-from typing import Optional
 import textwrap
 
 days = 25
 base_example_file = "example"
+base_sample_file = "sample.txt"
 base_data_file = "data.txt"
 lang_ext = {"python": "py"}
 
@@ -27,20 +27,25 @@ def main(year: str, language: str, base_path: str) -> None:
     example_file = f"{base_example_file}.{ext}"
 
     for day in range(days):
+
+        # Make directories
         new_path = os.path.join(base_path, str(year), str(day + 1).zfill(2))
         try:
             os.makedirs(new_path, exist_ok=True)
         except OSError:
             print(f"Failed creating the directory '{new_path}'.")
 
-        data_file = os.path.join(new_path, base_data_file)
-        if not os.path.exists(data_file):
-            try:
-                open(data_file, "w").close()
-            except OSError:
-                print(f"Failed creating file '{data_file}.")
+        # Make both data files
+        data_files = [base_sample_file, base_data_file]
+        for data_file in data_files:
+            data_file = os.path.join(new_path, base_data_file)
+            if not os.path.exists(data_file):
+                try:
+                    open(data_file, "w").close()
+                except OSError:
+                    print(f"Failed creating file '{data_file}.")
 
-        # Copy example base file
+        # Copy example base file to both problem files
         with open(example_file) as f:
             contents = f.read()
             for problem in range(2):
