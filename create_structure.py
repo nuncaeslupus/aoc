@@ -10,10 +10,11 @@
 """
 
 import argparse
-from argparse_range import range_action
 import os
-from pathlib import Path
 import textwrap
+from pathlib import Path
+
+from argparse_range import range_action
 
 days = 25
 base_example_file = "example"
@@ -56,6 +57,37 @@ def main(year: str, language: str, base_path: str) -> None:
                             new_f.write(contents)
                     except OSError:
                         print(f"Failed creating file '{problem_file}'.")
+
+
+def get_data(year: int, day: int):
+    # https://adventofcode.com/2021/day/10
+
+    cookies = {
+        "_ga": "GA1.2.527594012.1668425664",
+        "session": "53616c7465645f5fd3f524662f9d68fc4ae8ac8f80ae7f7c2a336e787890dbcf7addff8ca82e449dcd98843a64199ed7db8109ffb6db3ed91616b15c019aeb52",
+        "_gid": "GA1.2.24970747.1669821126",
+        "ru": "53616c7465645f5f1ef3590ee7dd436cd8606ee7b45e2efd29eb67d44c58aa88c96f46ab8edd0c07f4bfc2ff21f0a745",
+    }
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
+    }
+
+    response = requests.get(
+        f"https://adventofcode.com/{year}/day/{day}/input",
+        cookies=cookies,
+        headers=headers,
+    )
+
+    return response.text
 
 
 if __name__ == "__main__":
