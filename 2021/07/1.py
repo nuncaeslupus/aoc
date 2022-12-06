@@ -10,7 +10,7 @@ with open(data_file) as f:
     min = np.min(positions)
     max = np.max(positions)
 
-    min_fuel = 10000000000000000
+    min_fuel = np.iinfo(np.int64).max
     for pos in range(min, max + 1):
         new_positions = positions - pos
         fuel = np.abs(new_positions).sum()
