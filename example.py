@@ -4,11 +4,9 @@ data_file = "sample.txt"
 # data_file = "data.txt"
 
 start = timer()
-with open(data_file) as f:
-    lines = f.read().splitlines()
-
+with open(data_file, encoding="utf-8") as f:
     result = None
-    for l in lines:
+    for l in f:
         pass
 
     print(f"Result: {result}")
