@@ -6,7 +6,7 @@ data_file = "sample.txt"
 start = timer()
 with open(data_file, encoding="utf-8") as f:
     result = None
-    for l in f:
+    for l in f.read().splitlines():
         pass
 
     print(f"Result: {result}")
