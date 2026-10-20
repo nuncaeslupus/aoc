@@ -62,12 +62,15 @@ def main(year: str, language: str, base_path: str) -> None:
 def get_data(year: int, day: int):
     # https://adventofcode.com/2021/day/10
 
-    cookies = {
-        "_ga": "GA1.2.527594012.1668425664",
-        "session": "53616c7465645f5fd3f524662f9d68fc4ae8ac8f80ae7f7c2a336e787890dbcf7addff8ca82e449dcd98843a64199ed7db8109ffb6db3ed91616b15c019aeb52",
-        "_gid": "GA1.2.24970747.1669821126",
-        "ru": "53616c7465645f5f1ef3590ee7dd436cd8606ee7b45e2efd29eb67d44c58aa88c96f46ab8edd0c07f4bfc2ff21f0a745",
-    }
+    import requests  # only needed to download inputs
+
+    session = os.environ.get("AOC_SESSION")
+    if not session:
+        raise SystemExit(
+            "Set the AOC_SESSION environment variable to your adventofcode.com "
+            "'session' cookie (see README)."
+        )
+    cookies = {"session": session}
 
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0",
