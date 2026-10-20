@@ -49,4 +49,4 @@ Run it from the repository root: it reads `example.py` from the current director
 
 ## License
 
-No license file is included; all rights reserved by the author.
+MIT — see [LICENSE](LICENSE).
