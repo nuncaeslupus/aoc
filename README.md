@@ -39,6 +39,12 @@ python3 create_structure.py 2024 python -p ~/aoc
 
 Run it from the repository root: it reads `example.py` from the current directory. It creates `YEAR/01..25/` with `1.py`, `2.py`, `sample.txt` and `data.txt`. Only Python is supported.
 
+`get_data(year, day)` downloads a puzzle input and needs your session cookie in the `AOC_SESSION` environment variable (copy the value of the `session` cookie from your browser while logged in to adventofcode.com):
+
+```bash
+export AOC_SESSION=<your session cookie value>
+```
+
 ## Related projects
 
 - [claude-arsenal](https://github.com/nuncaeslupus/claude-arsenal) — spec-driven Claude Code workflow and gated task queue.
