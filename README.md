@@ -1,6 +1,6 @@
 # Advent of Code
 
-**Python solutions to [Advent of Code](https://adventofcode.com/) 2021, 2022 and 2023, plus a script that scaffolds a year's folders.**
+**Python solutions to [Advent of Code](https://adventofcode.com/) across several years, plus a script that scaffolds a year's folders.**
 
 Each year has 25 day folders; each day has one script per puzzle part. The scripts are plain Python with no shared framework, so any one of them runs on its own.
 
