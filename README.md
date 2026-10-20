@@ -55,4 +55,4 @@ export AOC_SESSION=<your session cookie value>
 
 ## License
 
-No license file is included; all rights reserved by the author.
+MIT — see [LICENSE](LICENSE).
